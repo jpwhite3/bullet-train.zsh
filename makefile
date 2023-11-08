@@ -5,3 +5,6 @@ install:
 # Symlinks the theme for easier development
 link:
 	ln -sF `pwd`/level-up.zsh-theme ~/.oh-my-zsh/themes/
+
+unlink:
+	rm ~/.oh-my-zsh/themes/level-up.zsh-theme

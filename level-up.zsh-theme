@@ -68,7 +68,7 @@ if [ ! -n "${LVLUP_VIRTUALENV_FG+1}" ]; then
   LVLUP_VIRTUALENV_FG=white
 fi
 if [ ! -n "${LVLUP_VIRTUALENV_PREFIX+1}" ]; then
-  LVLUP_VIRTUALENV_PREFIX="PY "
+  LVLUP_VIRTUALENV_PREFIX="PY"
 fi
 
 # NVM
@@ -112,7 +112,7 @@ if [ ! -n "${LVLUP_GO_FG+1}" ]; then
   LVLUP_GO_FG=white
 fi
 if [ ! -n "${LVLUP_GO_PREFIX+1}" ]; then
-  LVLUP_GO_PREFIX="GO "
+  LVLUP_GO_PREFIX="GO"
 fi
 
 # Java
@@ -198,7 +198,7 @@ fi
 
 # GIT PROMPT
 if [ ! -n "${LVLUP_GIT_PREFIX+1}" ]; then
-  ZSH_THEME_GIT_PROMPT_PREFIX="\ue0a0 "
+  ZSH_THEME_GIT_PROMPT_PREFIX="git: "
 else
   ZSH_THEME_GIT_PROMPT_PREFIX=$LVLUP_GIT_PREFIX
 fi
@@ -208,17 +208,17 @@ else
   ZSH_THEME_GIT_PROMPT_SUFFIX=$LVLUP_GIT_SUFFIX
 fi
 if [ ! -n "${LVLUP_GIT_DIRTY+1}" ]; then
-  ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}╪%F{black}"
+  ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}(dirty)%F{black}"
 else
   ZSH_THEME_GIT_PROMPT_DIRTY=$LVLUP_GIT_DIRTY
 fi
 if [ ! -n "${LVLUP_GIT_CLEAN+1}" ]; then
-  ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}═%F{black}"
+  ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}(clean)%F{black}"
 else
   ZSH_THEME_GIT_PROMPT_CLEAN=$LVLUP_GIT_CLEAN
 fi
 if [ ! -n "${LVLUP_GIT_ADDED+1}" ]; then
-  ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}┼%F{black}"
+  ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}+%F{black}"
 else
   ZSH_THEME_GIT_PROMPT_ADDED=$LVLUP_GIT_ADDED
 fi
@@ -228,12 +228,12 @@ else
   ZSH_THEME_GIT_PROMPT_MODIFIED=$LVLUP_GIT_MODIFIED
 fi
 if [ ! -n "${LVLUP_GIT_DELETED+1}" ]; then
-  ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}─%F{black}"
+  ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}-%F{black}"
 else
   ZSH_THEME_GIT_PROMPT_DELETED=$LVLUP_GIT_DELETED
 fi
 if [ ! -n "${LVLUP_GIT_UNTRACKED+1}" ]; then
-  ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}Θ%F{black}"
+  ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}?!%F{black}"
 else
   ZSH_THEME_GIT_PROMPT_UNTRACKED=$LVLUP_GIT_UNTRACKED
 fi
@@ -495,17 +495,21 @@ prompt_virtualenv() {
 
 # NVM: Node version manager
 prompt_nvm() {
+  javascript_files=( *.js(#qN) )
+  node_package_files=( package*.json(#qN) )
   local nvm_prompt
-  if type nvm >/dev/null 2>&1; then
-    nvm_prompt=$(nvm current 2>/dev/null)
-    [[ "${nvm_prompt}x" == "x" || "${nvm_prompt}" == "system" ]] && return
-  elif type node >/dev/null 2>&1; then
-    nvm_prompt="$(node --version)"
-  else
-    return
+  if [[ ($#javascript_files -gt 0 || $#node_package_files -gt 0) ]]; then
+    if type nvm >/dev/null 2>&1; then
+      nvm_prompt=$(nvm current 2>/dev/null)
+      [[ "${nvm_prompt}x" == "x" || "${nvm_prompt}" == "system" ]] && return
+    elif type node >/dev/null 2>&1; then
+      nvm_prompt="$(node --version)"
+    else
+      return
+    fi
+    nvm_prompt=${nvm_prompt}
+    prompt_segment $LVLUP_NVM_BG $LVLUP_NVM_FG $LVLUP_NVM_PREFIX$nvm_prompt
   fi
-  nvm_prompt=${nvm_prompt}
-  prompt_segment $LVLUP_NVM_BG $LVLUP_NVM_FG $LVLUP_NVM_PREFIX$nvm_prompt
 }
 
 #AWS Profile
