@@ -14,13 +14,13 @@ if [ ! -n "${LVLUP_PROMPT_ORDER+1}" ]; then
     context
     dir
     aws
-    virtualenv
     ruby
     java
     nvm
     go
     rust
     dotnet
+    virtualenv
     git
     cmd_exec_time
   )
@@ -100,7 +100,7 @@ fi
 if [ ! -n "${LVLUP_AWS_PREFIX+1}" ]; then
   LVLUP_AWS_PREFIX="☁️"
   if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
-    LVLUP_AWS_PREFIX="AWS "
+    LVLUP_AWS_PREFIX="AWS"
   fi
 fi
 
@@ -153,7 +153,7 @@ fi
 if [ ! -n "${LVLUP_RUST_PREFIX+1}" ]; then
   LVLUP_RUST_PREFIX="🦀"
   if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
-    LVLUP_RUST_PREFIX="RUST "
+    LVLUP_RUST_PREFIX="RUST"
   fi
 fi
 
@@ -165,7 +165,7 @@ if [ ! -n "${LVLUP_DOTNET_FG+1}" ]; then
   LVLUP_DOTNET_FG=red
 fi
 if [ ! -n "${LVLUP_DOTNET_PREFIX+1}" ]; then
-  LVLUP_DOTNET_PREFIX=".NET "
+  LVLUP_DOTNET_PREFIX=".NET"
 fi
 
 # DIR
