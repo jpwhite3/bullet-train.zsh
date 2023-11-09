@@ -68,7 +68,7 @@ to your **~/.zshrc** where you're adding your other zsh plugins.
 
 ```bash
 setopt prompt_subst # Make sure prompt is able to be generated properly.
-zplug "caiogondim/level-up.zsh", use:level-up.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
+zplug "jpwhite3/level-up.zsh", use:level-up.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
 ```
 
 ## Options
@@ -158,7 +158,7 @@ NOTE: You do not need to specify _end_ segment - it will be added automatically.
 | ----------------- | ------- | --------------------- |
 | `LVLUP_GO_BG`     | `green` | Background color      |
 | `LVLUP_GO_FG`     | `white` | Foreground color      |
-| `LVLUP_GO_PREFIX` | `go`    | Prefix of the segment |
+| `LVLUP_GO_PREFIX` | `GO`    | Prefix of the segment |
 
 ### AWS Profile
 
@@ -223,13 +223,12 @@ The git prompt can be disabled for a specific repository by setting a git config
 
 ## Contributors
 
-That project was originally a fork from
-[Powerline](https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme), but
-most of the code was later erased and its now more closely related to
+That project was originally a fork from [Bullet Train](https://github.com/ElderMael/bullet-train.zsh), and shares much of the same logic and configuration.
 
 ## Credits
 
 This theme is highly inspired by the following themes:
 
+- [Bullet Train](https://github.com/ElderMael/bullet-train.zsh)
 - [Powerline](https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme)
 - [Agnoster](https://gist.github.com/agnoster/3712874)
