@@ -70,7 +70,7 @@ if [ ! -n "${LVLUP_VIRTUALENV_FG+1}" ]; then
 fi
 if [ ! -n "${LVLUP_VIRTUALENV_PREFIX+1}" ]; then
   LVLUP_VIRTUALENV_PREFIX=🐍
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     LVLUP_VIRTUALENV_PREFIX="PY"
   fi
 fi
@@ -84,7 +84,7 @@ if [ ! -n "${LVLUP_NVM_FG+1}" ]; then
 fi
 if [ ! -n "${LVLUP_NVM_PREFIX+1}" ]; then
   LVLUP_NVM_PREFIX="⬡ "
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     LVLUP_NVM_PREFIX="NODE "
   fi
 fi
@@ -98,7 +98,7 @@ if [ ! -n "${LVLUP_AWS_FG+1}" ]; then
 fi
 if [ ! -n "${LVLUP_AWS_PREFIX+1}" ]; then
   LVLUP_AWS_PREFIX="☁️"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     LVLUP_AWS_PREFIX="AWS "
   fi
 fi
@@ -112,7 +112,7 @@ if [ ! -n "${LVLUP_RUBY_FG+1}" ]; then
 fi
 if [ ! -n "${LVLUP_RUBY_PREFIX+1}" ]; then
   LVLUP_RUBY_PREFIX="♦️"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     LVLUP_RUBY_PREFIX="RB"
   fi
 fi
@@ -137,7 +137,7 @@ if [ ! -n "${LVLUP_JAVA_FG+1}" ]; then
 fi
 if [ ! -n "${LVLUP_JAVA_PREFIX+1}" ]; then
   LVLUP_JAVA_PREFIX="☕"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     LVLUP_JAVA_PREFIX="JDK"
   fi
 fi
@@ -151,7 +151,7 @@ if [ ! -n "${LVLUP_RUST_FG+1}" ]; then
 fi
 if [ ! -n "${LVLUP_RUST_PREFIX+1}" ]; then
   LVLUP_RUST_PREFIX="🦀"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     LVLUP_RUST_PREFIX="RUST "
   fi
 fi
@@ -230,7 +230,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_DIRTY+1}" ]; then
   ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}✘%F{black}"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red}(dirty)%F{black}"
   fi
 else
@@ -239,7 +239,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_CLEAN+1}" ]; then
   ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}✔%F{black}"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green}(clean)%F{black}"
   fi
 else
@@ -248,7 +248,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_ADDED+1}" ]; then
   ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}✚%F{black}"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_ADDED=" %F{green}+%F{black}"
   fi
 else
@@ -257,7 +257,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_MODIFIED+1}" ]; then
   ZSH_THEME_GIT_PROMPT_MODIFIED=" %F{blue}✹%F{black}"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_MODIFIED=" %F{blue}≈%F{black}"
   fi
 else
@@ -266,7 +266,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_DELETED+1}" ]; then
   ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}✖%F{black}"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_DELETED=" %F{red}-%F{black}"
   fi
 else
@@ -275,7 +275,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_UNTRACKED+1}" ]; then
   ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}✭%F{black}"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_UNTRACKED=" %F{yellow}?!%F{black}"
   fi
 else
@@ -296,7 +296,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_AHEAD+1}" ]; then
   ZSH_THEME_GIT_PROMPT_AHEAD=" ⬆"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_AHEAD=" »"
   fi
 else
@@ -305,7 +305,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_BEHIND+1}" ]; then
   ZSH_THEME_GIT_PROMPT_BEHIND=" ⬇"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_BEHIND=" «"
   fi
 else
@@ -314,7 +314,7 @@ fi
 
 if [ ! -n "${LVLUP_GIT_DIVERGED+1}" ]; then
   ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_GIT_PROMPT_DIVERGED=" ±"
   fi
 else
@@ -412,7 +412,7 @@ precmd() {
 
 prompt_cmd_exec_time() {
   ZSH_THEME_EXEC_TIME_PREFIX="⏱"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_EXEC_TIME_PREFIX=""
   fi
   [ $LVLUP_last_exec_duration -gt $LVLUP_EXEC_TIME_ELAPSED ] && prompt_segment $LVLUP_EXEC_TIME_BG $LVLUP_EXEC_TIME_FG $ZSH_THEME_EXEC_TIME_PREFIX "$(displaytime $LVLUP_last_exec_duration)"
@@ -461,7 +461,7 @@ prompt_dir() {
   fi
 
   ZSH_THEME_DIR_PREFIX="📂"
-  if [[ $DISABLE_UNICODE_PROMPT ]]; then
+  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_DIR_PREFIX=""
   fi
 
