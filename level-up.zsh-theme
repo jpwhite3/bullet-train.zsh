@@ -13,14 +13,15 @@ if [ ! -n "${LVLUP_PROMPT_ORDER+1}" ]; then
     status
     context
     dir
+    aws
+    git
+    virtualenv
     ruby
     java
-    virtualenv
     nvm
-    aws
     go
     rust
-    git
+    dotnet
     cmd_exec_time
   )
 fi
