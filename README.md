@@ -1,10 +1,7 @@
-<img src="http://rawgit.com/caiogondim/level-up-oh-my-zsh-theme/master/img/icon.svg" width="100%" />
-
 # Level Up for oh-my-zsh <a href="http://webchat.freenode.net/?channels=LVLUP-sh" target="_blank"><img src="https://img.shields.io/badge/IRC-LVLUP–sh-1e72ff.svg?style=flat" height="20"></a>
 
 Level Up is a [oh-my-zsh shell](https://github.com/robbyrussell/oh-my-zsh)
-theme based on the
-[Powerline Vim plugin](https://github.com/Lokaltog/vim-powerline). It aims for
+theme based on the [Bullet Train theme](https://github.com/ElderMael/bullet-train.zsh). It aims for
 simplicity, showing information only when it's relevant.
 
 It currently shows:
@@ -12,18 +9,19 @@ It currently shows:
 - Current Python virtualenv; when using Pyenv and no active virtualenv shows the current Python version the shell uses
 - Current Ruby version using chruby; version and gemset when on RVM or Rbenv
 - Current Node.js version, through NVM (if present) or Node.js
+- Current Java version
+- Current Rust version
+- Current GO version
+- Current AWS profile
 - Git status
 - Timestamp
 - Current directory
 - Background jobs
 - Exit code of last command
 
-If you want add some new feature, of fix some bug, open an issue and lets hack
-together.
-
 ## Preview
 
-![Preview](http://raw.github.com/caiogondim/level-up-oh-my-zsh-theme/master/img/preview.gif)
+![Preview](http://raw.github.com/jpwhite3/level-up.zsh/main/img/preview.gif)
 
 ## Requirements
 
@@ -36,7 +34,7 @@ In order to use the theme, you will first need:
 
 ### For oh-my-zsh users
 
-1. Download the theme [here](http://raw.github.com/caiogondim/level-up-oh-my-zsh-theme/master/level-up.zsh-theme)
+1. Download the theme [here](http://raw.github.com/jpwhite3/level-up.zsh/main/level-up.zsh-theme)
 
 2. Put the file **level-up.zsh-theme** in **$ZSH_CUSTOM/themes/**
 
@@ -52,7 +50,7 @@ Add the following snippet to your **.zshrc** somewhere after the line
 `antigen use oh-my-zsh`.
 
 ```bash
-antigen theme https://github.com/caiogondim/level-up-oh-my-zsh-theme level-up
+antigen theme https://github.com/jpwhite3/level-up.zsh level-up
 ```
 
 ### For Zgen users
@@ -60,7 +58,7 @@ antigen theme https://github.com/caiogondim/level-up-oh-my-zsh-theme level-up
 If you're using [zgen](https://github.com/tarjoilija/zgen), add the following line to your **~/.zshrc** where you're adding your other zsh plugins **after** the line `zgen oh-my-zsh`.
 
 ```bash
-zgen load caiogondim/level-up-oh-my-zsh-theme level-up
+zgen load jpwhite3/level-up.zsh level-up
 ```
 
 ### For Zplug users
@@ -219,9 +217,9 @@ The git prompt can be disabled for a specific repository by setting a git config
 
 ## Wiki
 
-- [FAQ](https://github.com/caiogondim/level-up-oh-my-zsh-theme/wiki/FAQ)
-- [Screenshots](https://github.com/caiogondim/level-up-oh-my-zsh-theme/wiki/Screenshots)
-- [Tips](https://github.com/caiogondim/level-up-oh-my-zsh-theme/wiki/Tips)
+- [FAQ](https://github.com/jpwhite3/level-up.zsh/wiki/FAQ)
+- [Screenshots](https://github.com/jpwhite3/level-up.zsh/wiki/Screenshots)
+- [Tips](https://github.com/jpwhite3/level-up.zsh/wiki/Tips)
 
 ## Contributors
 
