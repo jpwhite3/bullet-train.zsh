@@ -14,7 +14,6 @@ if [ ! -n "${LVLUP_PROMPT_ORDER+1}" ]; then
     context
     dir
     aws
-    git
     virtualenv
     ruby
     java
@@ -22,6 +21,7 @@ if [ ! -n "${LVLUP_PROMPT_ORDER+1}" ]; then
     go
     rust
     dotnet
+    git
     cmd_exec_time
   )
 fi
@@ -412,10 +412,6 @@ precmd() {
 }
 
 prompt_cmd_exec_time() {
-  ZSH_THEME_EXEC_TIME_PREFIX="⏱"
-  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
-    ZSH_THEME_EXEC_TIME_PREFIX=""
-  fi
   [ $LVLUP_last_exec_duration -gt $LVLUP_EXEC_TIME_ELAPSED ] && prompt_segment $LVLUP_EXEC_TIME_BG $LVLUP_EXEC_TIME_FG "$(displaytime $LVLUP_last_exec_duration)"
 }
 
@@ -459,11 +455,6 @@ prompt_dir() {
   else
     #medium directories (default case)
     dir="${dir}%4(c:...:)%3c"
-  fi
-
-  ZSH_THEME_DIR_PREFIX="📂"
-  if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
-    ZSH_THEME_DIR_PREFIX=""
   fi
 
   prompt_segment $LVLUP_DIR_BG $LVLUP_DIR_FG $dir
@@ -537,8 +528,6 @@ prompt_dotnet() {
 # Python Virtualenv: current working virtualenv or default python
 prompt_virtualenv() {
   python_files=( *.py(#qN) )
-  pipenv_files=( Pipfile.lock(#qN) )
-  poetry_files=( poetry.lock(#qN) )
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
     prompt_segment $LVLUP_VIRTUALENV_BG $LVLUP_VIRTUALENV_FG $LVLUP_VIRTUALENV_PREFIX" $(basename $virtualenv_path)"
@@ -550,11 +539,11 @@ prompt_virtualenv() {
     if command -v python > /dev/null 2>&1; then
       prompt_segment $LVLUP_VIRTUALENV_BG $LVLUP_VIRTUALENV_FG $LVLUP_VIRTUALENV_PREFIX" $(python --version | cut -d' ' -f2)"
     fi
-  elif [[ ($#pipenv_files -gt 0) ]]; then
+  elif [[ -f Pipfile.lock ]]; then
     if command -v pipenv > /dev/null 2>&1; then
       prompt_segment $LVLUP_VIRTUALENV_BG $LVLUP_VIRTUALENV_FG $LVLUP_VIRTUALENV_PREFIX" $(pipenv run python --version | cut -d' ' -f2)"
     fi
-  elif [[ ($#poetry_files -gt 0) ]]; then
+  elif [[ -f poetry.lock ]]; then
     if command -v poetry > /dev/null 2>&1; then
       prompt_segment $LVLUP_VIRTUALENV_BG $LVLUP_VIRTUALENV_FG $LVLUP_VIRTUALENV_PREFIX" $(poetry run python --version | cut -d' ' -f2)"
     fi
