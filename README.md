@@ -1,4 +1,4 @@
-# Level Up for oh-my-zsh <a href="http://webchat.freenode.net/?channels=LVLUP-sh" target="_blank"><img src="https://img.shields.io/badge/IRC-LVLUP–sh-1e72ff.svg?style=flat" height="20"></a>
+# Level-Up for oh-my-zsh
 
 Level Up is a [oh-my-zsh shell](https://github.com/robbyrussell/oh-my-zsh)
 theme based on the [Bullet Train theme](https://github.com/ElderMael/bullet-train.zsh). It aims for
