@@ -415,7 +415,7 @@ prompt_cmd_exec_time() {
   if [[ $DISABLE_UNICODE_PROMPT == true ]]; then
     ZSH_THEME_EXEC_TIME_PREFIX=""
   fi
-  [ $LVLUP_last_exec_duration -gt $LVLUP_EXEC_TIME_ELAPSED ] && prompt_segment $LVLUP_EXEC_TIME_BG $LVLUP_EXEC_TIME_FG $ZSH_THEME_EXEC_TIME_PREFIX "$(displaytime $LVLUP_last_exec_duration)"
+  [ $LVLUP_last_exec_duration -gt $LVLUP_EXEC_TIME_ELAPSED ] && prompt_segment $LVLUP_EXEC_TIME_BG $LVLUP_EXEC_TIME_FG "$(displaytime $LVLUP_last_exec_duration)"
 }
 
 # Git
@@ -465,7 +465,7 @@ prompt_dir() {
     ZSH_THEME_DIR_PREFIX=""
   fi
 
-  prompt_segment $LVLUP_DIR_BG $LVLUP_DIR_FG $ZSH_THEME_DIR_PREFIX $dir
+  prompt_segment $LVLUP_DIR_BG $LVLUP_DIR_FG $dir
 }
 
 # RUBY
@@ -528,7 +528,7 @@ prompt_dotnet() {
   dotnet_solution_files=( *.sln(#qN) )
   if [[ ($#csharp_files -gt 0 || $#dotnet_project_files -gt 0 || $#dotnet_solution_files -gt 0) ]]; then
     if command -v dotnet > /dev/null 2>&1; then
-      prompt_segment $LVLUP_RUST_BG $LVLUP_RUST_FG $LVLUP_RUST_PREFIX" $(dotnet --version | cut -d' ' -f2)"
+      prompt_segment $LVLUP_DOTNET_BG $LVLUP_DOTNET_FG $LVLUP_DOTNET_PREFIX" $(dotnet --version | cut -d' ' -f2)"
     fi
   fi
 }
